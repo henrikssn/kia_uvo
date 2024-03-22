@@ -14,8 +14,10 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.const import (
+    DEGREE,
     PERCENTAGE,
     UnitOfEnergy,
+    UnitOfSpeed,
     UnitOfTime,
 )
 
@@ -239,6 +241,27 @@ SENSOR_DESCRIPTIONS: Final[tuple[SensorEntityDescription, ...]] = (
         name="V2L Discharge Limit",
         native_unit_of_measurement=PERCENTAGE,
         device_class=SensorDeviceClass.BATTERY,
+    ),
+    SensorEntityDescription(
+        key="_location_latitude",
+        name="Latitude",
+        native_unit_of_measurement=DEGREE,
+    ),
+    SensorEntityDescription(
+        key="_location_longitude",
+        name="Longitude",
+        native_unit_of_measurement=DEGREE,
+    ),
+    SensorEntityDescription(
+        key="_location_heading",
+        name="Heading",
+        native_unit_of_measurement=DEGREE,
+    ),
+    SensorEntityDescription(
+        key="_location_speed",
+        name="Speed",
+        device_class=SensorDeviceClass.DISTANCE,
+        native_unit_of_measurement=UnitOfSpeed.KILOMETERS_PER_HOUR,
     ),
 )
 
